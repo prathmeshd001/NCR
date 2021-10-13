@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">Fluid Control</label>
+        <ul>
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="/dashboardYears">Dashboard</a></li>
+            <li><a href="#">Create NCR</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+    <div class="welcome">
+        <H1>Welcome</H1>
+    </div>
+    <div class="welcome">
+        <a href="/dashboardYears"><button type="submit" formaction = "/dashboardYears" formmethod="get" class="btn btn-light btn-lg btn-outline-primary">Dashboard</button></a>
+        <button type="submit" formaction = "/admin"formmethod="post" name="homeBtn" value="createNcr" class="btn btn-light btn-lg btn-outline-primary"><a href="/">Create NCR</a></button>
+    </div>
+    <section></section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">Fluid Control</label>
+        <ul>
+            <li><a class="" href="#">Home</a></li>
+            <li><a class="active" href="#">Dashboard</a></li>
+            <li><a class="" href="#">Create NCR</a></li>
+            <li><a class="" href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="welcome">
+        <H1>Dashboard</H1>
+    </div>
+    <div class="table-responsive table-div">
+        <caption>Year 2021-22</caption>
+        <table class="table table-light table-striped table-sm table-hover table-bordered border-primary">
+            <thead class="table-primary">
+                <tr>
+                    <th>SR NO</th>
+                    <th>Date</th>
+                    <th>IO No.</th>
+                    <th>Supplier</th>
+                    <th>Catgory</th>
+                    <th>Part Name</th>
+                    <th>PO/JO No</th>
+                    <th>Challan No</th>
+                    <th>Total Rcvd Qty</th>
+                    <th>NCR Qty</th>
+                    <th>Reason</th>
+                    <th>Immediate Corrective Action</th>
+                    <th>Root Cause</th>
+                    <th>Corrective Action</th>
+                    <th>Status</th>
+                    <th>Response Time</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>04/04/2021</td>
+                    <td>FCSQANCR2122-01</td>
+                    <td>BHARAT PRECISION INDUSTRIES</td>
+                    <td>NUT</td>
+                    <td>6 SN.C360</td>
+                    <td>FC/48/PO/0003</td>
+                    <td>0001/21-22</td>
+                    <td>4500</td>
+                    <td>1734</td>
+                    <td>1) 9.65 bore id o/s
+                        2) 9.5 tapping length o/s by 1.16 mm
+                        3)Concentricity gauge notok
+                        4)Visuall notok.: dent mark found on hex and asid cleaing not done</td>
+                    <td>We sent our gages to validate thread length. Stock quantity we checked again and then dispatch.
+                    </td>
+                    <td>Thread done on manual machine so there is variation in manual threading operation that why
+                        thread length observed oversize</td>
+                    <td>Check point add in receiving and pdi report for thread length issue and thread length we checked
+                        in profile projector and with gage both.</td>
+                    <td style="color:green;">closed</td>
+                    <td>2 days</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>23</td>
+                    <td>ds</td>
+                    <td>sa</td>
+                    <td>axdc</td>
+                    <td>1</td>
+                    <td>swd</td>
+                    <td>de</td>
+                    <td>frwf</td>
+                    <td>cf</td>
+                    <td>cf</td>
+                    <td>crfr</td>
+                    <td>wf</td>
+                    <td>fwf</td>
+                    <td style=" color: black;">open</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>23</td>
+                    <td>ds</td>
+                    <td>sa</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="color: black; ">open</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>23</td>
+                    <td>ds</td>
+                    <td>sa</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="color: red;">open</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
