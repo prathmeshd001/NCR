@@ -56,7 +56,7 @@ app.post("/", function(req, res) {
       if (user === 'a') {
         res.redirect('/adminHome');
       } else {
-        res.redirect('/supplier');
+        res.redirect('/user');
       }
     } else {
       res.send('Incorrect Username and/or Password!');
@@ -68,7 +68,7 @@ app.post("/", function(req, res) {
 });
 
 
-app.get("/adminHome", function(req, res){
+app.get("/adminHome", function(req, res) {
   if (req.session.loggedin) {
     res.render('home');
   } else {
@@ -78,7 +78,7 @@ app.get("/adminHome", function(req, res){
 });
 
 
-app.get("/adminHome/createNCR", function(req, res){
+app.get("/adminHome/createNCR", function(req, res) {
   if (req.session.loggedin) {
     res.render('adminForm');
   } else {
@@ -87,40 +87,36 @@ app.get("/adminHome/createNCR", function(req, res){
 });
 
 
-app.post("/adminHome/createNCR", function(req, res){
+app.post("/adminHome/createNCR", function(req, res) {
   if (req.session.loggedin) {
-  const year  = new Date().getFullYear();
-  const date = new Date().toLocaleString();
+    const year = new Date().getFullYear();
+    const date = new Date().toLocaleString();
 
-  const ioNo = 'FCSQANCR'+year+'-'+ io;
-  //const sEmai = req.body.EmailAddress;
-  const sName = req.body.supplierName;
-  const category =   req.body.category;
-  const partName =   req.body.partName;
-  const pojo =  req.body.pojo;
-  const challan =  req.body.challanNo;
-  const rcvdQuantity =  req.body.totalRCVD;
-  const nQuantity = req.body.NCRquantity;
-  //const image = req.body.image;
-   console.log("checl");
-  let insert = `INSERT INTO adminncr
+    const ioNo = 'FCSQANCR' + year + '-' + io;
+    //const sEmai = req.body.EmailAddress;
+    const sName = req.body.supplierName;
+    const category = req.body.category;
+    const partName = req.body.partName;
+    const pojo = req.body.pojo;
+    const challan = req.body.challanNo;
+    const rcvdQuantity = req.body.totalRCVD;
+    const nQuantity = req.body.NCRquantity;
+    //const image = req.body.image;
+    console.log("checl");
+    let insert = `INSERT INTO adminncr
           (date, ioNo, supplierName, category, partName, pojo, challanNo, totalRCVD, NCRQuantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);`;
-  con.query(insert, [date,ioNo,sName,category,partName,pojo,challan,rcvdQuantity,nQuantity],function(err, rows){
-    if(err)
-    {
-      console.log(err);
-    }
-    else
-    {
-      console.log("euuuuuuuuuu");
-         res.redirect("/adminHome");
-    }
-  })
+    con.query(insert, [date, ioNo, sName, category, partName, pojo, challan, rcvdQuantity, nQuantity], function(err, rows) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("euuuuuuuuuu");
+        res.redirect("/adminHome");
+      }
+    })
     io = io + 1;;
-}
-else{
-  console.log("not authorised");
-}
+  } else {
+    console.log("not authorised");
+  }
 
 });
 
@@ -128,16 +124,32 @@ else{
 //   res.send(req.params)
 // })
 
-app.get("/supplier", function(req, res) {
-  if (req.session.loggedin) {
-    res.send('Welcome back, ' + req.session.userid + '!');
-  } else {
-    res.send('Please login to view this page!');
-  }
-  res.end();
+app.get("/:user", function(req, res) {
+
+  // if (req.session.loggedin) {
+    const requestedSupplier = req.params.user;
+    console.log(requestedSupplier);
+
+
+    con.query(`SELECT iono FROM adminncr WHERE supplierName = ?`,[requestedSupplier], function(err, answer, fields){
+      if(err)
+      {
+        console.log(err);
+      }
+      else{
+
+        console.log(answer);
+       res.render("supplierHome", {answer: answer});
+      }
+    });
+  // } else {
+  //   res.send('Please login to view this page!');
+  // }
+  // res.end();
 });
 
 
 app.listen(process.env.PORT || 3000, function() {
   console.log("Server ");
 });
+
