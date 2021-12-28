@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href="http://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/adminForm.css">
+</head>
+
+<body>
+
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <div class="logo-image">
+           <img src="/images/logo-3.png" class="logo">
+     </div>
+    <ul>
+      <li><a class="active" href="#">Home</a></li>
+      <li><a href="#/dashboard">Dashboard</a></li>
+      <li><a href="#">about</a></li>
+      <li><button class = "btn  btn-primary btn-lg" onclick="location.href='/logout'" type="button">
+         logout</button></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="row sname">
+      <h1>
+        <%= array3[0].supplierName %>
+      </h1>
+    </div>
+    <div class="row remain my-3">
+      <h3>Date:</h3>
+      <h5>
+        <%= array3[0].date %>
+      </h5>
+    </div>
+    <div class="row remain my-3">
+      <h3>IO NO:</h3>
+      <h5>
+        <%= array3[0].ioNo%>
+      </h5>
+    </div>
+    <div class="row remain my-3">
+      <h3>Category:</h3>
+      <h5>
+        <%= array3[0].category %>
+      </h5>
+    </div>
+    <div class="row remain my-3">
+      <h3>Part Name:</h3>
+      <h5>
+        <%= array3[0].partName %>
+      </h5>
+    </div>
+    <div class="row remain my-3">
+      <h3>Po No/Jo No:</h3>
+      <h5>
+        <%= array3[0].pojo %>
+      </h5>
+    </div>
+    <div class="row remain my-3">
+      <h3>Challan Number/Invoice No:</h3>
+      <h5>
+        <%= array3[0].challanNo %>
+      </h5>
+    </div>
+    <div class="row remain my-3">
+      <h3>Image:</h3>
+      <img src="<%=array3[0].image%>" alt="sdkzfjxh" class="ncrimage">
+    </div>
+    <div class="row remain my-3">
+      <h3>Total recieved Quantity:</h3>
+      <h5>
+        <%= array3[0].totalRCVD %>
+      </h5>
+    </div>
+    <div class="row remain my-3">
+      <h3>NC Quantity:</h3>
+      <h5>
+        <%= array3[0].NCRQuantity %>
+      </h5>
+    </div>
+    <div class="row remain my-3">
+      <h3>Part Number:</h3>
+      <h4>
+        <%= array3[0].partNumber %>
+      </h4>
+    </div>
+
+    <div class="row remain my-3">
+      <h3>Part Name:</h3>
+      <h4>
+        <%= array3[0].productDescription %>
+      </h4>
+    </div>
+
+    <div class="row remain my-3">
+      <h3>Product Name:</h3>
+      <h4>
+        <%= array3[0].productname %>
+      </h4>
+    </div>
+
+<div class="row remain my-3">
+  <h3>NCR Description:</h3>
+  <h4>
+    <%= array3[0].descriptionncr %>
+  </h4>
+</div>
+
+<div class="row remain my-3">
+  <h3>Immediate Corrective Action:</h3>
+  <h5>
+    <%= array3[0].immediateCorrectiveAction %>
+  </h5>
+</div>
+<div class="row remain my-3">
+  <h3>Root Cause(Why Made):</h3>
+  <h5>
+    <%= array3[0].rootCause1 %>
+  </h5>
+</div>
+
+<div class="row remain my-3">
+  <h3>Root Cause Why Shipped:</h3>
+  <h5>
+    <%= array3[0].rootcause2 %>
+  </h5>
+</div>
+<div class="row remain my-3">
+  <h3>corrective Action(Why Made):</h3>
+  <h5>
+    <%= array3[0].ca1 %>
+  </h5>
+</div>
+<div class="response">
+  <div class="  res">
+    <h4>Responsibility:</h4>
+    <h5>
+      <%= array3[0].responsibility1 %>
+    </h5>
+  </div>
+  <div class=" tar">
+    <h4>Target Date:</h4>
+    <h5>
+      <%= array3[0].targetDate1 %>
+    </h5>
+  </div>
+</div>
+
+<div class="row remain my-3">
+  <h3>corrective Action(Why Shipped):</h3>
+  <h5>
+    <%= array3[0].ca2 %>
+  </h5>
+</div>
+<div class="response">
+  <div class="  res">
+    <h4>Responsibility:</h4>
+    <h5>
+      <%= array3[0].responsibility2 %>
+    </h5>
+  </div>
+  <div class=" tar">
+    <h4>Target Date:</h4>
+    <h5>
+      <%= array3[0].targetDate2 %>
+    </h5>
+  </div>
+</div>
+
+<div class="row remain my-3 ">
+  <h3>Preventive Action:</h3>
+  <h5>
+    <%= array3[0].preventiveAction %>
+  </h5>
+</div>
+<div class="row remain my-3">
+  <h3>Closure:</h3>
+  <h5>
+    <%= array3[0].closure %>
+  </h5>
+</div>
+
+
+
+
+    <form class="formbutton" action="/adminHome/approve/<%=array3.ioNo%>" method="post">
+      <div class="row button my-3 ">
+        <div class="col-sm">
+          <button class="btn btn-primary btn-lg" type="submit" name="approve" formaction="/adminHome/review/approve/<%=array3[0].ioNo%>">Approve</button>
+        </div>
+        <div class="col-sm">
+          <button class="btn btn-primary btn-lg" type="submit" name="reject" formaction="/adminHome/review/reject/<%=array3[0].ioNo%>">Reject</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

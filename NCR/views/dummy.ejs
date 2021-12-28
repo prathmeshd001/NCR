@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>dummy</title>
+  </head>
+  <body>
+    <h1><%=n%></h1>
+  </body>
+</html>
+
+
+
+<!--
+<div class="data">
+  <h3><%=info[0].ioNo %></h3>
+</div>
+<div class="data">
+  <h3><%= info[0][0] %></h3>
+</div>
+<div class="data">
+  <h3>07/11/2021</h3>
+</div>
+<div class="data">
+  <h3><%= info[0].category%></h3>
+</div>
+<div class="data">
+  <img src=<%=info[0].image%>alt="">
+</div>
+ <div class="data">
+  <h3><%=info[0].partName%></h3>
+</div>
+<div class="data">
+  <h3><%=info[0].pojo%></h3>
+</div>
+<div class="data">
+  <h3><%=info[0].challanNo%></h3>
+</div>
+<div class="data">
+  <h3><%=info[0].totalRCVD%></h3>
+</div>
+<div class="data">
+  <h3><%=info[0].NCRquantity%></h3>
+</div> -->
+
+
+
+
+
+<div class="mx-1 row box">
+  <div class="row bg-light">
+    <div class=" row bg-light my-2">
+      <h3 class="col-1">Supplier Name:</h3>
+      <h4 class="col border">
+        <%= array.supplierName %>
+      </h4>
+    </div>
+    <div class=" row bg-light my-2">
+      <h3 class="col-1">Date:</h3>
+      <h4 class="col border">
+        <%= array.date %>
+      </h4>
+    </div>
+  </div>
+  <div class="row bg-light">
+    <div class=" row bg-light my-2">
+
+      <h3 class="col-1">IO NO:</h3>
+      <h4 class="col border">
+        <%= array.ioNo %>
+      </h4>
+    </div>
+    <div class=" row bg-light my-2">
+      <h3 class="col-1">Category:</h3>
+      <h4 class="col border">
+        <%= array.category %>
+      </h4>
+    </div>
+    <div class=" row bg-light my-2">
+      <h3 class="col-1">Part Name:</h3>
+      <h4 class="col border">
+        <%= array.partName %>
+      </h4>
+    </div>
+    <div class=" row bg-light my-2">
+      <h3 class="col-1">Po/Jo:</h3>
+      <h4 class="col border">
+        <%= array.pojo %>
+      </h4>
+    </div>
+    <div class=" row bg-light my-2">
+      <h3 class="col-1">Challan No:</h3>
+      <h4 class="col border">
+        <%= array.challanNo %>
+      </h4>
+    </div>
+    <div class=" row bg-light my-2">
+      <h3 class="col-1">Total REcieved:</h3>
+      <h4 class="col border">
+        <%= array.totalRCVD %>
+      </h4>
+    </div>
+    <div class=" row bg-light my-2">
+      <h3 class="col-1">NCR Quantity:</h3>
+      <h4 class="col border">
+        <%= array.NCRQuantity %>
+      </h4>
+    </div>
+  </div>
+  <!-- Image Div -->
+  <div class="row bg-light ">
+    <h3 class="col-3">Images:</h3>
+    <!-- <div class="col border">
+
+      <img src=<%="array.fpath"%> alt="fpath" class="img-fluid float-start">
+
+    </div> -->
+  </div>
+</div>

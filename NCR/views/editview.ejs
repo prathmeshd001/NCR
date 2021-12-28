@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">Fluid Control</label>
+      <ul>
+        <li><a class="active" href="/supplier/<%=dynamicSupplier%>">Home</a></li>
+        <li><button class = "btn  btn-primary btn-lg" onclick="location.href='/logout'" type="button">
+           logout</button></li>
+        <!-- <li><a href="/logout">Logout</a></li> -->
+      </ul>
+    </nav>
+
+    <div class="container">
+      <div class="row sname">
+        <h3>
+          <%=array3[0].supplierName%>
+        </h3>
+      </div>
+      <div class="row remain my-3">
+        <h3>Date:</h3>
+        <h4>
+          <%= array3[0].date %>
+
+        </h4>
+      </div>
+      <div class="row remain my-3">
+        <h3>IO NO:</h3>
+        <h4>
+          <%= array3[0].ioNo %>
+        </h4>
+      </div>
+      <div class="row remain my-3">
+        <h3>Category:</h3>
+        <h4>
+          <%= array3[0].category %>
+        </h4>
+      </div>
+      <div class="row remain my-3">
+        <h3>Part Name:</h3>
+        <h4>
+          <%= array3[0].partName %>
+        </h4>
+      </div>
+      <div class="row remain my-3">
+        <h3>Po/Jo:</h3>
+        <h5>
+          <%= array3[0].pojo %>
+        </h5>
+      </div>
+      <div class="row remain my-3">
+        <h3>Challan No:</h3>
+        <h4>
+          <%= array3[0].challanNo %>
+        </h4>
+      </div>
+      <div class="row remain my-3">
+        <h3>Total Recieved:</h3>
+        <h4>
+          <%= array3[0].totalRCVD %>
+        </h4>
+      </div>
+      <div class="row remain my-3">
+        <h3>NCR Quantity:</h3>
+        <h4>
+          <%= array3[0].NCRQuantity %>
+        </h4>
+      </div>
+      <div class="row remain my-3">
+        <h3>Image:</h3>
+        <img src="<%=array3[0].image%>" alt="sdkzfjxh" class="ncrimage">
+      </div>
+      <div class="row remain my-3">
+        <h3>Reason:</h3>
+        <h4>
+          <%= array3[0].reason %>
+        </h4>
+      </div>
+      <div class="row remain my-3">
+        <h3>Immediate Corrective Action:</h3>
+        <h4>
+          <%= array3[0].immediateCorrectiveAction %>
+        </h4>
+      </div>
+      <div class="row remain my-3">
+        <h3>Root Cause:</h3>
+        <h4>
+          <%= array3[0].rootCause %>
+        </h4>
+      </div>
+      <div class="row remain my-3">
+        <h3>Corrective Action:</h3>
+        <h4>
+          <%= array3[0].correctiveAction %>
+        </h4>
+      </div>
+    </div>
+  </body>
+</html>

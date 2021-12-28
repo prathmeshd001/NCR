@@ -1,0 +1,224 @@
+/* Sign in page */
+/*
+.nav-text{
+    text-decoration-color: aqua;
+    color: aqua;
+} */
+
+@import url('http://fonts.cdnfonts.com/css/segoe-ui-4');
+
+
+*{
+  font-family: 'Segoe UI', sans-serif;
+                                                
+}
+
+
+
+.sign-in{
+    border: 1px solid #000000;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.05), 0px 10px 40px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;;
+    /* margin: 12% 34%; */
+    margin: 2% 34% 12% 34%;
+    padding: 1%;
+    background-color: aqua;
+}
+
+
+/* Home page  */
+
+.welcome{
+    size: 2%;
+    margin-left: 15%;
+    margin-top: 2%;
+}
+
+.welcome button{
+    margin: 7% 10%;
+    padding: 2% 10%;
+    /* border-radius: 3%; */
+
+}
+
+/* Dashboard page */
+
+.table-div{
+  padding: 1% 1%;
+  margin-top: 2%;
+}
+
+/* Dashboard yearly page */
+
+.table-div-year{
+  padding: 4% 25%;
+  margin-top: 2%;
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+
+  }
+  body{
+    font-family: sans-serif;
+    text-decoration: none;
+  }
+  nav{
+    /* height: 57%; */
+    background: white;
+    height: 6rem;
+    width: 100%;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.05), 0px 10px 40px rgba(0, 0, 0, 0.05);
+
+  }
+  label.logo{
+    color: red;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+  }
+  nav ul{
+    float: right;
+    margin-right: 20px;
+  }
+  nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+  }
+  nav ul li a{
+    color: black;
+    font-size: 23px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+      text-decoration: none;
+  }
+  a.active,a:hover{
+    text-decoration: underline;
+    transition: .5s;
+
+  }
+  .checkbtn{
+    font-size: 30px;
+    color: Blue;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 858px){
+    .checkbtn{
+      display: block;
+    }
+    ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #2c3e50;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+    nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      font-size: 20px;
+    }
+    /* a:hover,a.active{
+      background: none;
+      color: #0082e6;
+    } */
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
+  section{
+    background: url(bg1.jpg) no-repeat;
+    background-size: cover;
+    height: calc(100vh - 80px);
+  }
+
+
+  .table-div{
+  padding: 1% 1%;
+  margin-top: 2%;
+  /* text-align: center; */
+}
+
+table img{
+  margin: 1% 1%;
+  padding: 0% 0%;
+  width: 20%;
+}
+
+
+.image{
+  margin: 10% 40% 0% 38%;
+}
+img {
+  width: 90%;
+}
+/* .responsive {
+    width: 100%;
+    height: auto;
+  } */
+
+  .btn{
+
+  /* text-align: center; */
+  margin:auto;
+  display:block;
+  }
+
+  .logo-image{
+    position: absolute;
+    padding-top: 0.5%;
+    width: 20%;
+    height: 100%;
+    overflow: hidden;
+    margin-top: 0.1%;
+    /* margin: auto; */
+}
+
+
+/* table */
+.table-div-year{
+  border-radius: 10px;
+  background-color: #EEEEEE;
+ /* background-color: #F6F6F6; */
+  padding: 4% 10%;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  /* border: 2px solid black; */
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.05), 0px 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.manual{
+   /* border: 2px solid black; */
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.05), 0px 10px 40px rgba(0, 0, 0, 0.05);
+}

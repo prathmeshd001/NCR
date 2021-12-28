@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Supplier Form</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href="http://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/adminForm.css">
+</head>
+
+<body>
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <div class="logo-image">
+      <img src="/images/logo-3.png" class="logo">
+    </div>
+    <ul>
+      <li><a class="active" href="/supplier/<%=dynamicSupplier%>">Home</a></li>
+      <li><button class="btn  btn-outline-primary btn-lg" onclick="location.href='/logout'" type="button">
+          logout</button></li>
+    </ul>
+  </nav>
+
+
+  <div class="container py-3">
+    <div class="row sname">
+      <h3>
+        <%=array5[0].supplierName%>
+      </h3>
+    </div>
+    <div class="row remain my-3">
+      <h3>Date:</h3>
+      <h4>
+        <%= array5[0].date %>
+
+      </h4>
+    </div>
+    <div class="row remain my-3">
+      <h3>IO NO:</h3>
+      <h4>
+        <%=array5[0].ioNo %>
+      </h4>
+    </div>
+    <div class="row remain my-3">
+      <h3>Category:</h3>
+      <h4>
+        <%= array5[0].category %>
+      </h4>
+    </div>
+    <div class="row remain my-3">
+      <h3>Part Name:</h3>
+      <h4>
+        <%= array5[0].partName %>
+      </h4>
+    </div>
+    <div class="row remain my-3">
+      <h3>Po/Jo:</h3>
+      <h5>
+        <%= array5[0].pojo %>
+      </h5>
+    </div>
+    <div class="row remain my-3">
+      <h3>Challan No:</h3>
+      <h4>
+        <%= array5[0].challanNo %>
+      </h4>
+    </div>
+    <div class="row remain my-3">
+      <h3>Total Recieved:</h3>
+      <h4>
+        <%= array5[0].totalRCVD %>
+      </h4>
+    </div>
+    <div class="row remain my-3">
+      <h3>NCR Quantity:</h3>
+      <h4>
+        <%= array5[0].NCRQuantity %>
+      </h4>
+    </div>
+
+    <div class="row remain my-3">
+      <h3>Product Description:</h3>
+      <h4>
+        <%= array5[0].productDescription %>
+      </h4>
+    </div>
+
+    <div class="row remain my-3">
+      <h3>Product Name:</h3>
+      <h4>
+        <%= array5[0].productname %>
+      </h4>
+    </div>
+
+<div class="row remain my-3">
+  <h3>NCR Description:</h3>
+  <h4>
+    <%= array5[0].descriptionncr %>
+  </h4>
+</div>
+    <div class="row remain my-3 img">
+      <h3>Image:</h3>
+      <img src="<%=array5[0].image%>" alt="sdkzfjxh" class="ncrimage">
+    </div>
+  </div>
+
+
+  <div class="container py-3 mb-4">
+
+    <form class="" action="/reject/<%=dynamicSupplier%>/<%=dynamicIono%>" method="post">
+      <div class="form-group">
+        <label for="reason"><h3>Reason</h3></label>
+        <textarea class="form-control" name="reason" id="exampleFormControlTextarea1"  rows="3"> <%= array5[0].reason %> </textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="immediateCorrectiveAction"><h3>Immediate Corrective Action</h3></label>
+        <textarea class="form-control" name="immediateCorrectiveAction" id="exampleFormControlTextarea1"
+          rows="3" > <%= array5[0].immediateCorrectiveAction %> </textarea>
+      </div>
+      <div class="form-group row">
+        <label for="rootCause "><h3>Root Cause</h3></label>
+
+        <div class="form-group col-6">
+          <label for="Why Made" class="form-label ">Why Made</label>
+          <textarea type="text" class="form-control" name="WhyMade1" >  <%= array5[0].rootCause1 %> </textarea>
+        </div>
+        <div class="form-group col-6">
+          <label for="Why Shipped" class="form-label ">Why Shipped</label>
+          <textarea type="text" class="form-control" name="Why1"  > <%= array5[0].rootCause2 %> </textarea>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="correctiveAction"><h3>Corrective Action</h3></label>
+        <div class="form-group col-6">
+          <label for="Why Made" class="form-label ">Why Made</label>
+          <textarea type="text" class="form-control" name="WhyMade2" placeholder="Why Made"> <%= array5[0].ca1 %> </textarea>
+        </div>
+        <div class="form-group col-6">
+          <label for="Why Shipped" class="form-label ">Why Shipped</label>
+          <textarea type="text" class="form-control" name="Why2"  placeholder="Why Shipped"> <%= array5[0].ca2 %> </textarea>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <button type="submit" class="btn btn-lg btn-primary my-1">Submit</button>
+    </form>
+  </div>
+<!-- <button type="submit" class="btn btn-lg btn-primary my-1">Submit</button> -->
+  <!-- <div class="formclass">-->
+
+  <!-- <div class="container py-3 mb-4">
+
+    <form class="" action="/supplier/<%=dynamicSupplier%>/<%=dynamicIono%>" method="post">
+      <div class="form-group">
+        <label for="reason"><h3>Reason</h3></label>
+        <textarea class="form-control" name="reason" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="immediateCorrectiveAction"><h3>Immediate Corrective Action</h3></label>
+        <textarea class="form-control" name="immediateCorrectiveAction" id="exampleFormControlTextarea1"
+          rows="3"></textarea>
+      </div>
+
+
+
+
+      <div class="form-group row">
+        <label for="rootCause "><h3>Root Cause</h3></label>
+
+        <div class="form-group col-6">
+          <label for="Why Made" class="form-label ">Why Made</label>
+          <textarea type="text" class="form-control" name="Why Made" value="" placeholder="Why Made"></textarea>
+        </div>
+        <div class="form-group col-6">
+          <label for="Why Shipped" class="form-label ">Why Shipped</label>
+          <textarea type="text" class="form-control" name="NCRquantity" value="" placeholder="Why Shipped"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="correctiveAction"><h3>Corrective Action</h3></label>
+        <div class="form-group col-6">
+          <label for="Why Made" class="form-label ">Why Made</label>
+          <textarea type="text" class="form-control" name="Why Made" value="" placeholder="Why Made"></textarea>
+        </div>
+        <div class="form-group col-6">
+          <label for="Why Shipped" class="form-label ">Why Shipped</label>
+          <textarea type="text" class="form-control" name="NCRquantity" value="" placeholder="Why Shipped"></textarea>
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="correctiveAction"><h3>Verification of Corrective Action</h3></label>
+        <div class="form-group col-4">
+          <label for="Owner Name" class="form-label ">Owner Name</label>
+          <textarea type="text" class="form-control" name="Owner Name" value="" placeholder="Owner Name"></textarea>
+        </div>
+        <div class="form-group col-4">
+          <label for="Owner PhoneNo" class="form-label ">Owner Phone Number</label>
+          <textarea type="text" class="form-control" name="Owner PhoneNo" value="" placeholder="Owner Phone Number"></textarea>
+        </div>
+        <div class="form-group col-4">
+          <label for="Owner Email" class="form-label ">Owner Email</label>
+          <textarea type="text" class="form-control" name="Owner Email" value="" placeholder="Owner Email Address"></textarea>
+        </div>
+      </div>
+
+
+
+
+      <button type="submit" class="btn btn-lg btn-primary my-1">Submit</button>
+    </form>
+
+  </div> -->
+
+</body>
+
+</html>

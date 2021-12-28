@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fluid Control</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="http://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
+    <link rel="stylesheet" href="/css/supplierHome.css">
+</head>
+
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <div class="logo-image">
+            <img src="/images/logo-3.png" class="logo">
+        </div>
+        <ul>
+            <li><button class="btn  btn-primary btn-lg" onclick="location.href='/logout'" type="button">
+                    logout</button></li>
+            <!-- <li><a href="/logout">logout</a></li> -->
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="row ">
+            <div class="name col-lg-center">
+                <h1 style="font-weight: bold">Welcome <%=requestedSupplier%>
+                </h1>
+            </div>
+            <div class="rejected">
+                <button class="btn btn-primary btn-lg mx-1" onclick="location.href='/supplier/pending/<%=requestedSupplier%>'" type="button">
+                Pending</button>
+                    <h3 class="mx-5">Rejected</h3>
+              </div>
+        </div>
+        <div class="row justify-content-lg-center">
+            <% answer.forEach(function(ans){ %>
+                <div class="cards col-md-12">
+                    <button class="btn  btn-outline-primary btn-lg"
+                        onclick="location.href='/reject/<%=requestedSupplier%>/<%=ans.iono%>'" type="button">
+                        <%=ans.iono%>
+                    </button></li>
+                    <!-- <h2><a href="/supplier/<%=requestedSupplier%>/<%=ans.iono%>"><%=ans.iono%></a></h2> -->
+                </div>
+                <% }) %>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
