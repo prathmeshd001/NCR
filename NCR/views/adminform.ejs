@@ -29,14 +29,20 @@
     </ul>
   </nav>
   <div class="ncrtitle">
-    <h1 style="font-weight: bold"> Create NCR</h1>
-    <!-- <h2>CREATE NCR</h2> -->
+    <h1 style="font-weight: 900">Create NCR</h1>
   </div>
   <div class="formclass py-3 mb-4">
     <form class="formbox" action="/adminHome/createNCR" enctype="multipart/form-data" method="post">
       <div class="form-group">
         <label for="supplierName">Supplier Name</label>
-        <input type="text" class="form-control" name="supplierName" value="">
+        <select name="supplierName" class="form-control" id="supplierName">
+          <option>Supplier Name</option>
+          <% array.forEach((element)=> {%>
+            <option value="<%=element.username%>">
+              <%=element.username%>
+            </option>
+          <%});%>
+        </select>
       </div>
 
       <div class="form-group">
@@ -68,12 +74,12 @@
 
       <div class="form-group">
         <label for="totalRCVD">Total recieved Quantity</label>
-        <input type="number" class="form-control" name="totalRCVD" value=""  placeholder="Enter Only number">
+        <input type="number" class="form-control" name="totalRCVD" value="" placeholder="Enter Only number" required>
       </div>
 
       <div class="form-group">
         <label for="NCRquantity">NC Quantity</label>
-        <input type="number" class="form-control" name="NCRquantity" value="" placeholder="Enter Only number" >
+        <input type="number" class="form-control" name="NCRquantity" value="" placeholder="Enter Only number" required>
       </div>
 
       <div class="form-group">
@@ -100,11 +106,11 @@
 
 
       <div class="form-group">
-        <label for="exampleFormControlFile1">Product Image</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="uploaded_file" accept='image/*'
-          multiple>
+        <label for="exampleFormControlFile1">Product File</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="uploaded_file" accept='file_extension/*'
+          multiple required>
       </div>
-
+     
 
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

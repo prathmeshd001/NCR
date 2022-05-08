@@ -22,10 +22,10 @@
            <img src="/images/logo-3.png" class="logo">
      </div>
     <ul>
-      <li><a class="active" href="#">Home</a></li>
-      <li><a href="#/dashboard">Dashboard</a></li>
-      <li><a href="#">about</a></li>
-      <li><button class = "btn  btn-primary btn-lg" onclick="location.href='/logout'" type="button">
+      <li><a class="active" href="/adminHome">Home</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <!-- <li><a href="#">about</a></li> -->
+      <li><button class = "btn  btn-outline-primary btn-lg" onclick="location.href='/logout'" type="button">
          logout</button></li>
     </ul>
   </nav>
@@ -73,8 +73,9 @@
       </h5>
     </div>
     <div class="row remain my-3">
-      <h3>Image:</h3>
-      <img src="<%=array3[0].image%>" alt="sdkzfjxh" class="ncrimage">
+      <h3>File:</h3>
+      <embed src="<%=array3[0].image%>"  width="800px" height="510px"  />
+      
     </div>
     <div class="row remain my-3">
       <h3>Total recieved Quantity:</h3>
@@ -122,6 +123,76 @@
     <%= array3[0].immediateCorrectiveAction %>
   </h5>
 </div>
+
+
+<div class="form-group row ">
+  <label for="teamMembers my-1"><h3>Team Members</h3></label>
+  <div class="form-group col-4 teamdetail text-muted">
+    <label for="CTF Team" class="form-label "><h4>CTF Team</h4></label>
+    <h6><%= array3[0].teammember1 %></h6>
+  </div>
+  
+  <div class="form-group col-4 teamdetail text-muted">
+    <label for="Title" class="form-label "><h4>Title</h4></label>
+    <h6><%= array3[0].title1 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <label for="Email" class="form-label "><h4>Email</h4></label>
+    <h6><%= array3[0].email1 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].teammember2 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].title2 %></h6>
+  </div>
+  
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].email2 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].teammember3 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].title3 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].email3 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].teammember4 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].title4 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].email4 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].teammember5 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].title5 %></h6>
+  </div>
+
+  <div class="form-group col-4 teamdetail text-muted">
+    <h6><%= array3[0].email5 %></h6>
+  </div>
+
+</div>
+
+
 <div class="row remain my-3">
   <h3>Root Cause(Why Made):</h3>
   <h5>
@@ -193,13 +264,20 @@
 
 
 
-    <form class="formbutton" action="/adminHome/approve/<%=array3.ioNo%>" method="post">
+
+
+    <form class="formbutton"  method="post">
+     
+        <label for="NCRquantity">Remark</label>
+        <input type="text" class="form-control" name="remark" id="remark" value="" placeholder="Enter the reason for the rejection" > 
+      
+      
       <div class="row button my-3 ">
         <div class="col-sm">
           <button class="btn btn-primary btn-lg" type="submit" name="approve" formaction="/adminHome/review/approve/<%=array3[0].ioNo%>">Approve</button>
         </div>
         <div class="col-sm">
-          <button class="btn btn-primary btn-lg" type="submit" name="reject" formaction="/adminHome/review/reject/<%=array3[0].ioNo%>">Reject</button>
+          <button class="btn btn-primary btn-lg" type="submit" name="reject" id="reject" disabled formaction="/adminHome/review/reject/<%=array3[0].ioNo%>">Reject</button>
         </div>
       </div>
     </form>
@@ -207,3 +285,14 @@
 </body>
 
 </html>
+
+<script>
+document.getElementById("remark").addEventListener("keyup", function() {
+    var nameInput = document.getElementById('remark').value;
+    if (nameInput != "") {
+        document.getElementById('reject').removeAttribute("disabled");
+    } else {
+        document.getElementById('reject').setAttribute("disabled", null);
+    }
+});
+</script>

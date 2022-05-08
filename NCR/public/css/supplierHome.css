@@ -84,7 +84,7 @@ a:hover {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: #2c3e50;
+    background:white;
     top: 80px;
     left: -100%;
     text-align: center;
@@ -119,7 +119,7 @@ img {
   position: absolute;
   padding-top: 0.5%;
   width: 20%;
-  height: 100%;
+  height: 20%;
   /* overflow: hidden; */
   margin-top: 0.1%;
   /* margin: auto; */
