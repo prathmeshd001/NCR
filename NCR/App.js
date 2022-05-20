@@ -76,11 +76,8 @@ app.post("/", function (req, res) {
       console.log(err);
     } else if (result.length > 0) {
       req.session.loggedin = true;
-      //  console.log(result);
       req.session.user_id = user;
-      //console.log(req.session.user_id);
       if (user === 'admin') {
-        //  req.toastr.success('Successfully logged in.', "You're in!");
         res.redirect('/adminHome');
       } else {
         res.redirect('/supplier/pending/' + user);
@@ -102,9 +99,6 @@ app.get("/adminHome", function (req, res) {
       } else {
         array2 = result;
         const len = result.length;
-        console.log(len);
-        console.log(result);
-        console.log(typeof (array2));
         res.render('home', {
           array2: array2,
           len: len
@@ -126,9 +120,7 @@ app.get("/adminHome/createNCR", function (req, res) {
         {console.log(err);} 
       else{
           var array = [];
-          console.log(array);
-          array = rows;
-          console.log(array);  
+          array = rows;  
         res.render('adminform', {array: array})
       }
     });
@@ -156,7 +148,6 @@ app.post("/adminHome/createNCR", upload.array('uploaded_file'), function (req, r
           let supplierEmail = req.body.supplierEmail;
           const sName = req.body.supplierName;
           emailUserName = sName;
-          console.log(sName);
           const category = req.body.category;
           const partName = req.body.partName;
           const pojo = req.body.pojo;
@@ -193,15 +184,12 @@ app.post("/adminHome/createNCR", upload.array('uploaded_file'), function (req, r
         }
          else {
           id = ans[0].max_srno + 1;
-          console.log(id);
           const year = new Date().getFullYear();
           var ioNo = 'FCSQANCR' + year + '-' + id;
-          //console.log(ioNo);
           const date = new Date().toLocaleString();
           let supplierEmail = req.body.supplierEmail;
           const sName = req.body.supplierName;
           emailUserName = sName;
-          // console.log(sName);
           const category = req.body.category;
           const partName = req.body.partName;
           const pojo = req.body.pojo;
@@ -212,12 +200,10 @@ app.post("/adminHome/createNCR", upload.array('uploaded_file'), function (req, r
           const fpath = req.files[0].path;
           JSON.stringify(fpath);
           var imagepath = fpath.slice(6);
-          // console.log(imagepath);
           var productDescription = req.body.productDescription;
           var productName = req.body.productName;
           var descriptionncr = req.body.descriptionncr;
           var partNumber = req.body.partNumber;
-          // const file = req.files;
 
           let insert = `INSERT INTO adminncr
                 (date, ioNo, supplierName, category, partName, pojo, challanNo, totalRCVD, NCRQuantity,status, isFilled, isaprooved , productName , productdescription , descriptionncr , partNumber,  isrejected, image) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?,?,?,?);`;
@@ -246,7 +232,6 @@ app.post("/adminHome/createNCR", upload.array('uploaded_file'), function (req, r
           to: ` ${sEmail}`,
           subject: 'Pending NCR',
           html: htmlMessage,
-         // text:  `${emailUserName}`
         };
 
         let transporter = nodemailer.createTransport({
@@ -301,7 +286,6 @@ app.get("/supplier/pending/:user", function (req, res) {
 app.get("/reject/:user", function (req, res) {
   if (req.session.loggedin) {
     const requestedSupplier = req.params.user;
-    console.log(requestedSupplier);
     if (req.session.user_id === requestedSupplier) {
       const insert = `SELECT iono FROM adminncr WHERE supplierName = ? and isfilled= ? and isrejected = ?`;
       con.query(insert, [requestedSupplier, true, true], function (err, answer, fields) {
@@ -327,8 +311,6 @@ var array = [];
 var count = 0;
 app.get("/supplier/pending/:user/:iono", function (req, res) {
   let temp = req.session.user_id;
-  console.log(temp);
-  console.log("euuuuuuuuu");
   const dynamicIono = req.params.iono;
   const dynamicSupplier = req.params.user;
 
@@ -339,15 +321,12 @@ app.get("/supplier/pending/:user/:iono", function (req, res) {
         if (err) {
           console.log(err);
         } else {
-          console.log(result);
           array = result[0];
-          console.log(typeof (array));
           res.render("supplierForm", {
             dynamicIono: dynamicIono,
             dynamicSupplier: dynamicSupplier,
             array: array
           });
-          console.log(req.url);
         }
         return;
         res.end();
@@ -412,8 +391,6 @@ app.post("/supplier/pending/:user/:iono", function (req, res) {
 var array5 = [];
 app.get("/reject/:user/:iono", function (req, res) {
   let temp = req.session.user_id;
-  console.log(temp);
-  console.log("ptk");
   const dynamicIono = req.params.iono;
   const dynamicSupplier = req.params.user;
 
@@ -425,8 +402,6 @@ app.get("/reject/:user/:iono", function (req, res) {
           console.log(err);
         } else {
           array5 = result;
-          console.log(array5);
-          console.log(req.url);
           res.render("supplierrejectform", {
             array5: array5,
             dynamicIono: dynamicIono,
@@ -483,10 +458,7 @@ app.get("/adminHome/review/:ioNo", function (req, res) {
         console.log(err);
       } else {
         array3 = result;
-        console.log(array3);
         count++;
-        console.log(count);
-        console.log(req.url);
         res.render('adminView', {
           array3: array3
         });
@@ -503,8 +475,6 @@ app.post("/adminHome/review/reject/:ioNo", function (req, res) {
   var dynamicIono = req.params.ioNo;
 
   var remark = req.body.remark;
-  console.log("This is reject route"); 
-  console.log(remark);
   var sql = `update adminncr set isrejected = ?, remark = ?  where ioNo = ?;`;
   con.query(sql, [true, remark, dynamicIono], function (err, result) {
     if (err) {
@@ -540,7 +510,6 @@ app.get("/dashboard", function (req, res) {
           console.log(err);
         } else {
           array4 = result;
-          console.log(array4);
           res.render('dashboard', {
             array4: array4
           });
@@ -568,32 +537,23 @@ app.get("/newSupplier", function(req, res){
 
 app.post("/newSupplier", function(req, res){
   var newSupplier = req.body.createSupplier;
-  // newSupplier = newSupplier.toLowerCase();
   var password = "fcpl@123";
   var isduplicate = "select username from logininfo where username = ?";
   con.query(isduplicate, [newSupplier], function (err, ans) {
     if (err) {
       console.log(err);
     }
-    // toString(ans[0]).toLowerCase() == toString(newSupplier).toLowerCase()
     else if(ans.length == 1){
-      
       alert("This supplier is already exist please enter new supplier!");
-    //  res.send({ success: false });
-    //  console.log(ans[0].username);
-    console.log(ans);
-    console.log(newSupplier);
-
     }
     else {
-      console.log("in the final else block");
       let insert = "insert into logininfo (username, password) VALUES(?, ?);";
       con.query(insert, [newSupplier, password], function (err, ans) {
         if (err) {
           console.log(err);
         }
         else {
-          alert("Jai Jai Ghadge!");
+          alert("Created new supplier successfully!");
           res.redirect("/adminHome");
         }
     })
@@ -602,19 +562,6 @@ app.post("/newSupplier", function(req, res){
 })
  
 });
-
-
-// app.get("/newSupplier",function(req,res){
-//   res.render("newSupplier");
-// })
-
-// app.post("/newSupplier",function(req,res){
-
-//   const newSupplier = req.body.userid;
-//   const pass = "fcpl@123"
-//   const query = "insert into login"
-//   con.query()
-// })
 
 
 app.get('/logout', (req, res) => {
